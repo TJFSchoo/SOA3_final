@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+        name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
@@ -43,7 +45,7 @@ jobs:
         shell: powershell
         run: |
           dotnet tool install --global dotnet-coverage
-          dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build .\AvansDevOps\AvansDevOps --no-incremental
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          MSBuild /t:rebuild .\AvansDevOps\AvansDevOps --no-incremental
           dotnet-coverage collect 'dotnet test .\AvansDevOps\AvansDevOpsTests' -f xml -o 'coverage.xml'
-          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
