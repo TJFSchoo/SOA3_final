@@ -43,5 +43,13 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
+          dotnet build /t:rebuild ./AvansDevOps/AvansDevOps/
+          dotnet restore .\AvansDevOps\AvansDevOpsTests
+          dotnet test .\AvansDevOps\AvansDevOpsTests -r output --collect "Code Coverage"
+          Get-ChildItem -Recurse -Filter "*.coverage" | % {
+          $outfile = "$([System.IO.Path]::GetFileNameWithoutExtension($_.FullName)).coveragexml"
+          $output = [System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($_.FullName), $outfile)
+          "Analyse '$($_.Name)' with output '$outfile'..."
+          . "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe" analyze /output:$output $_.FullName
+          }
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
