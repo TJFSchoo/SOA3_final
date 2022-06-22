@@ -10,7 +10,6 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
-      dotnet tool install --global dotnet-coverage
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -43,6 +42,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
+          dotnet tool install --global dotnet-coverage
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build .\AvansDevOps\AvansDevOps --no-incremental
           dotnet-coverage collect 'dotnet test .\AvansDevOps\AvansDevOpsTests' -f xml -o 'coverage.xml'
