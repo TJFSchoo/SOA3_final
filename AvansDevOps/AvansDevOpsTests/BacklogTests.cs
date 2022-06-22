@@ -1347,6 +1347,7 @@ namespace AvansDevOpsTests
             backlogItem1.GetState().AddTask(task2);
             backlogItem1.GetState().AddTask(task3);
 
+
             backlogItem1.GetState().NextState();
 
             backlogItem1.GetTasks().First().NextState();
