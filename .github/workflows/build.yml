@@ -43,7 +43,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build /t:rebuild ./AvansDevOps/AvansDevOps/
+          dotnet build /t:rebuild .\AvansDevOps\AvansDevOps\
           dotnet restore .\AvansDevOps\AvansDevOpsTests
           dotnet test .\AvansDevOps\AvansDevOpsTests -r output --collect "Code Coverage"
           Get-ChildItem -Recurse -Filter "*.coverage" | % {
