@@ -42,8 +42,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet tool install --global dotnet-coverage
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          .\.sonar\scanner\dotnet build .\AvansDevOps\AvansDevOps --no-incremental
-          .\.sonar\scanner\dotnet-coverage collect 'dotnet test .\AvansDevOps\AvansDevOpsTests' -f xml -o 'coverage.xml'
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet tool install --global dotnet-coverage
+          dotnet-sonarscanner begin /k:"TJFSchoo_SOA3_final" /o:"tjfschoo" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build .\AvansDevOps\AvansDevOps --no-incremental
+          dotnet-coverage collect 'dotnet test .\AvansDevOps\AvansDevOpsTests' -f xml -o 'coverage.xml'
+          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
