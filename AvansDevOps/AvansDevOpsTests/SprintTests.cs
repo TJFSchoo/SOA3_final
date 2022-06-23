@@ -920,7 +920,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Add_Review_Gives_No_Exception_In_FinishedState_When_Add_By_ScrumMaster()
+        public void Add_Review_Gives_No_Exception_In_FinishedState_When_Add_By_Scrum_Master()
         {
             // Arrange
 

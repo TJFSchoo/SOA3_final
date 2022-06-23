@@ -15,7 +15,7 @@ namespace AvansDevOpsTests
     public class BacklogTests
     {
         [Fact]
-        public void Adding_Backlog_To_Project_Gives_No_Exception()
+        public void Add_Backlog_To_Project_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -44,7 +44,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Backlog_Items_To_Project_Gives_No_Exception()
+        public void Add_Backlog_Items_To_Project_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -71,7 +71,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Duplicate_Backlog_Items_To_Backlog_Gives_NotSupportedException()
+        public void Add_Duplicate_Backlog_Items_To_Backlog_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -97,7 +97,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Tasks_To_Backlog_Item_Converts_BacklogItem_To_Different_Task()
+        public void Add_Tasks_To_Backlog_Item_Converts_BacklogItem_To_Different_Task()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -140,7 +140,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Backlog_Item_State_Without_Sprint_Gives_NotSupportedException()
+        public void Change_Backlog_Item_State_Without_Sprint_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -163,12 +163,9 @@ namespace AvansDevOpsTests
             // Assert
             Assert.Throws<NotSupportedException>(() => backlogItem1.ChangeState(new DoingState(backlogItem1)));
         }
-    }
 
-    public partial class TodoStateBacklogItemsTests
-    {
         [Fact]
-        public void Adding_Removing_Tasks_From_Backlog_Item_In_InitialState_Gives_No_Exception()
+        public void Add_Removing_Tasks_From_Backlog_Item_In_InitialState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -212,13 +209,13 @@ namespace AvansDevOpsTests
             Assert.Equal(4, backlogItem1.GetTasks().Count);
             backlogItem1.GetState().RemoveTask(task1);
             Assert.Equal(3, backlogItem1.GetTasks().Count);
-            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "Look here" )));
-            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "lorem" )));
-            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "ipsum" )));
+            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "Look here")));
+            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "lorem")));
+            Assert.NotNull(backlogItem1.GetTasks().Find((task => task.GetDescription() == "ipsum")));
         }
 
         [Fact]
-        public void Changing_Attributes_Gives_No_Exception()
+        public void Change_Attributes_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -359,12 +356,8 @@ namespace AvansDevOpsTests
             // Assert
             Assert.Equal("DoingState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
-    }
-
-    public partial class DoingStateBacklogItemsTests
-    {
         [Fact]
-        public void Adding_And_Removing_Tasks_From_BacklogItem_In_DoingState_Gives_No_Exception()
+        public void Add_And_Removing_Tasks_From_BacklogItem_In_DoingState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -416,7 +409,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Gives_No_Exception()
+        public void Change_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -618,12 +611,8 @@ namespace AvansDevOpsTests
             // Assert
             Assert.Equal("ReadyToTestState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
-    }
-
-    public partial class ReadyToTestStateBacklogItemsTests
-    {
         [Fact]
-        public void Removing_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_No_Exception()
+        public void Remove_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -683,7 +672,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_NotSupportedException()
+        public void Add_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -741,7 +730,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Gives_No_Exception()
+        public void ReadyToTest_State_Change_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -801,7 +790,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Previous_State_Gives_No_Exception()
+        public void ReadyToTest_State_To_Previous_State_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -972,12 +961,8 @@ namespace AvansDevOpsTests
             // Assert
             Assert.Equal("TestingState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
-    }
-
-    public partial class TestingStateBacklogItemsTest
-    {
         [Fact]
-        public void Adding_And_Removing_Tasks_From_Backlog_Item_In_TestState_Gives_NotSupportedException()
+        public void Add_And_Removing_Tasks_From_Backlog_Item_In_TestState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1039,7 +1024,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Backlog_Item_Name_In_TestState_Gives_No_Exception()
+        public void Change_Backlog_Item_Name_In_TestState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1103,7 +1088,7 @@ namespace AvansDevOpsTests
 
 
         [Fact]
-        public void Adding_Tasks_To_Backlog_Item_In_TestingState_Gives_NotSupportedException()
+        public void Add_Tasks_To_Backlog_Item_In_TestingState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1167,7 +1152,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Attributes_Gives_No_Exception()
+        public void Test_State_Change_Attributes_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1356,6 +1341,8 @@ namespace AvansDevOpsTests
             Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().NextState());
             Assert.Equal("TestingState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
-
     }
+
+
+
 }
