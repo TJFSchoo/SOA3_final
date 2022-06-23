@@ -23,7 +23,7 @@ namespace AvansDevOps.Forum
                 throw new NotSupportedException("[" + TAG + "] " + "Can't add thread when the task is marked as done.");
 
             if (string.IsNullOrWhiteSpace(thread.GetTitle()))
-                throw new ArgumentNullException(thread.GetTitle(), "[" + TAG + "] " + "Title of thread cannot be empty.");
+                throw new ArgumentNullException(thread.GetTitle(), "[" + TAG + "] " + "Title of thread can't be empty.");
 
             _threads.Add(thread);
         }

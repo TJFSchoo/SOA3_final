@@ -34,7 +34,7 @@ namespace AvansDevOps.Forum
 
             if (string.IsNullOrWhiteSpace(comment.GetContent()))
                 throw new ArgumentNullException(comment.GetContent(), 
-                    "[" + TAG + "] " + "Content of comment cannot be empty.");
+                    "[" + TAG + "] " + "Content of comment can't be empty.");
 
 
             foreach (var c in _comments)
