@@ -14,7 +14,7 @@ namespace AvansDevOpsTests
     public class PipelineTests
     {
         [Fact]
-        public void DevelopmentPipeline_Should_Fire_When_ReleaseSprint_Reaches_FinishedState()
+        public void Development_Pipeline_Fires_When_Release_Sprint_Gets_To_FinishedState()
         {
             // Arrange
 
@@ -36,7 +36,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void TestPipeline_Should_Fire_When_ReviewSprint_Reaches_FinishedState()
+        public void Test_Pipeline_Fires_When_Review_Sprint_Gets_To_FinishedState()
         {
             // Arrange
 

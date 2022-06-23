@@ -18,7 +18,7 @@ namespace AvansDevOpsTests
     public class NotificationTests
     {
         [Fact]
-        public void Backlog_Can_Register_One_Observer()
+        public void Can_Register_One_Observer()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
@@ -54,7 +54,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Backlog_Can_Register_Multiple_Observers()
+        public void Can_Register_Multiple_Observers()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
@@ -91,7 +91,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Backlog_Can_Unregister_Observer()
+        public void Can_Unregister_Observer()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
@@ -128,7 +128,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Backlog_Can_Not_Unregister_Observer()
+        public void Cant_Unregister_Observer()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
@@ -164,7 +164,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Backlog_Can_Not_Register_The_Same_Observer()
+        public void Cant_Register_Similar_Observer()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
@@ -201,7 +201,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Notification_Todo_State_Update()
+        public void Notifier_Update()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));

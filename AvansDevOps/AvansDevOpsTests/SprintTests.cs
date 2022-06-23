@@ -14,7 +14,7 @@ namespace AvansDevOpsTests
     public class SprintTests
     {
         [Fact]
-        public void Generating_A_Report_Should_Not_Throw_Exception()
+        public void Generate_A_Report_Gives_No_Exception()
         {
             // Arrange
 
@@ -69,7 +69,7 @@ namespace AvansDevOpsTests
 
     public partial class FeedbackSprint_InitializedState_Tests {
         [Fact]
-        public void Changing_SprintName_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_Sprint_Name_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -91,7 +91,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_Start_Date_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -114,7 +114,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_End_Date_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -137,7 +137,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Not_Throw_Exception_In_InitializedState()
+        public void Add_Developer_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -161,7 +161,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_NotSupportedException_In_InitializedState()
+        public void Add_Review_Gives_NotSupportedException_In_InitializedState()
         {
             // Arrange
 
@@ -183,7 +183,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Next_State_Should_Not_Throw_Exception_In_InitializedState()
+        public void Swap_To_New_State_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -206,7 +206,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Throw_NotSupportedException_In_InitializedState()
+        public void Swap_To_Old_State_Gives_NotSupportedException_In_InitializedState()
         {
             // Arrange
 
@@ -229,7 +229,7 @@ namespace AvansDevOpsTests
     public partial class FeedbackSprint_ActiveState_Tests
     {
         [Fact]
-        public void Changing_SprintName_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Sprint_Name_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -249,7 +249,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Start_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -270,7 +270,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_End_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -291,7 +291,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Not_Throw_Exception_In_ActiveState()
+        public void Add_Developer_Gives_No_Exception_In_ActiveState()
         {
             // Arrange
 
@@ -316,7 +316,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Add_Review_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -339,7 +339,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Not_Throw_Exception_In_ActiveState()
+        public void Change_To_Old_State_Gives_No_Exception_In_ActiveState()
         {
             // Arrange
 
@@ -366,7 +366,7 @@ namespace AvansDevOpsTests
     public partial class FeedbackSprint_FinishedState_Tests
     {
         [Fact]
-        public void Changing_SprintName_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Sprint_Name_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -386,7 +386,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Start_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -407,7 +407,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Throw_NotSupportedException_In_FinishedState()
+        public void Change_End_Date_Gives_NotSupportedException_In_FinishedState()
         {
             // Arrange
 
@@ -429,7 +429,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Throw_NotSupportedException_In_FinishedState()
+        public void Add_Developer_Gives_NotSupportedException_In_FinishedState()
         {
             // Arrange
 
@@ -454,7 +454,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Not_Throw_Exception_In_FinishedState_When_Added_By_ScrumMaster()
+        public void Add_Review_Gives_No_Exception_In_FinishedState_While_Add_By_Scrum_Master()
         {
             // Arrange
 
@@ -481,7 +481,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_SecurityException_In_FinishedState_When_Added_By_Someone_Else_But_ScrumMaster()
+        public void Add_Review_Gives_Security_Exception_In_Finished_State_When_Add_By_Non_ScrumMaster()
         {
             // Arrange
 
@@ -506,7 +506,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Not_Throw_Exception_In_FinishedState()
+        public void Change_To_Old_State_Gives_No_Exception_In_FinishedState()
         {
             // Arrange
 
@@ -535,7 +535,7 @@ namespace AvansDevOpsTests
     public partial class ReleaseSprint_InitializedState_Tests
     {
         [Fact]
-        public void Changing_SprintName_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_Sprint_Name_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -557,7 +557,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_Start_Date_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -580,7 +580,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_End_Date_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -603,7 +603,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Not_Throw_Exception_In_InitializedState()
+        public void Add_Developer_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -627,7 +627,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_NotSupportedException_In_InitializedState()
+        public void Add_Review_Gives_NotSupportedException_In_InitializedState()
         {
             // Arrange
 
@@ -649,7 +649,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Next_State_Should_Not_Throw_Exception_In_InitializedState()
+        public void Change_To_New_State_Gives_No_Exception_In_InitializedState()
         {
             // Arrange
 
@@ -672,7 +672,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Throw_NotSupportedException_In_InitializedState()
+        public void Change_To_Old_State_Gives_NotSupportedException_In_InitializedState()
         {
             // Arrange
 
@@ -695,7 +695,7 @@ namespace AvansDevOpsTests
     public partial class ReleaseSprint_ActiveState_Tests
     {
         [Fact]
-        public void Changing_SprintName_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Sprint_Name_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -715,7 +715,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Start_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -736,7 +736,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_End_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -757,7 +757,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Not_Throw_Exception_In_ActiveState()
+        public void Add_Developer_Gives_No_Exception_In_ActiveState()
         {
             // Arrange
 
@@ -782,7 +782,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Add_Review_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -805,7 +805,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Not_Throw_Exception_In_ActiveState()
+        public void Change_To_Old_State_Gives_No_Exception_In_ActiveState()
         {
             // Arrange
 
@@ -832,7 +832,7 @@ namespace AvansDevOpsTests
     public partial class ReleaseSprint_FinishedState_Tests
     {
         [Fact]
-        public void Changing_SprintName_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Sprint_Name_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -852,7 +852,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_StartDate_Should_Throw_NotSupportedException_In_ActiveState()
+        public void Change_Start_Date_Gives_NotSupportedException_In_ActiveState()
         {
             // Arrange
 
@@ -873,7 +873,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_EndDate_Should_Throw_NotSupportedException_In_FinishedState()
+        public void Change_End_Date_Gives_NotSupportedException_In_FinishedState()
         {
             // Arrange
 
@@ -895,7 +895,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Developer_Should_Throw_NotSupportedException_In_FinishedState()
+        public void Add_Developer_Gives_NotSupportedException_In_FinishedState()
         {
             // Arrange
 
@@ -920,7 +920,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Not_Throw_Exception_In_FinishedState_When_Added_By_ScrumMaster()
+        public void Add_Review_Gives_No_Exception_In_FinishedState_When_Add_By_ScrumMaster()
         {
             // Arrange
 
@@ -947,7 +947,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Set_Review_Should_Throw_SecurityException_In_FinishedState_When_Added_By_Someone_Else_But_ScrumMaster()
+        public void Add_Review_Gives_Security_Exception_In_FinishedState_When_Add_By_Non_Scrum_Master()
         {
             // Arrange
 
@@ -972,7 +972,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_To_Previous_State_Should_Not_Throw_Exception_In_FinishedState()
+        public void Change_To_Old_State_Gives_No_Exception_In_FinishedState()
         {
             // Arrange
 

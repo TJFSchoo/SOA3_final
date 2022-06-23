@@ -14,7 +14,7 @@ namespace AvansDevOpsTests
     public class ForumTests
     {
         [Fact]
-        public void NewThread_Can_Add_Thread()
+        public void Created_Thread_Can_Add_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -34,7 +34,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Remove_Multiple_Threads()
+        public void Created_Thread_Can_Remove_Multiple_Threads()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -55,7 +55,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Remove_Thread()
+        public void Created_Thread_Can_Remove_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -76,7 +76,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Not_Remove_Thread_Should_Throw_NotSupportedException()
+        public void Created_Thread_Can_Not_Remove_Thread_Gives_NotSupportedException()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -96,7 +96,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Add_Multiple_Thread()
+        public void Created_Thread_Can_Add_Multiple_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -120,7 +120,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Not_Remove_Multiple_Threads_Should_Throw_NotSupportedException()
+        public void Created_Thread_Can_Not_Remove_Multiple_Threads_Gives_NotSupportedException()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -144,7 +144,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Add_Thread_On_Task_State_ToDo()
+        public void Created_Thread_Can_Add_Thread_On_Task_State_ToDo()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -165,7 +165,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Can_Add_Thread_On_Task_State_Active()
+        public void Created_Thread_Can_Add_Thread_On_Task_State_Active()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -187,7 +187,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Add_Thread_On_Task_State_Done_Should_Throw_NotSupportedException()
+        public void Created_Thread_Cant_Add_Thread_On_Task_State_Done_Gives_NotSupportedException()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -209,7 +209,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Add_Thread_With_Empty_Title_Should_Throw_ArgumentNullException()
+        public void Created_Thread_Cant_Add_Thread_With_Empty_Title_Gives_Null_Exception()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -229,7 +229,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void AddComment_Can_Add_Comment_To_Existing_Thread()
+        public void Added_Comment_Can_Add_Comment_To_Existing_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -256,7 +256,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void AddComment_Can_Add_Multiple_Comments_To_Existing_Thread()
+        public void Added_Comment_Can_Add_Multiple_Comments_To_Existing_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -289,7 +289,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void AddComment_Can_Remove_Comment_To_Existing_Thread()
+        public void Added_Comment_Can_Remove_Comment_To_Existing_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -317,7 +317,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void AddComment_Can_Remove_Multiple_Comments_To_Existing_Thread()
+        public void Added_Comment_Can_Remove_Multiple_Comments_To_Existing_Thread()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -352,7 +352,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Add_Empty_Comment_On_Thread_Throw_ArgumentNullException()
+        public void Created_Thread_Cant_Add_Empty_Comment_On_Thread_Gives_Null_Exception()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -378,7 +378,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Add_Multiple_Empty_Comments_On_Thread_Throw_ArgumentNullException()
+        public void Created_Thread_Cant_Add_Multiple_Empty_Comments_On_Thread_Gives_Null_()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -410,7 +410,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Add_Comment_On_Thread_State_Done_Throw_NotSupportedException()
+        public void Created_Thread_Cant_Add_Comment_On_Thread_State_Done_Gives_NotSupportedException()
         {
             // Arrange
             ForumModel forum = new ForumModel();
@@ -438,7 +438,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void NewThread_Cant_Delete_Comment_On_Thread_State_Done_Throw_NotSupportedException()
+        public void Created_Thread_Cant_Delete_Comment_On_Thread_State_Done_Gives_NotSupportedException()
         {
             // Arrange
             ForumModel forum = new ForumModel();

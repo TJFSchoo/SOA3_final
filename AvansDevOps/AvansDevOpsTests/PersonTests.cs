@@ -14,7 +14,7 @@ namespace AvansDevOpsTests
     public class PersonTests
     {
         [Fact]
-        public void Person_Can_Add_One_Channel()
+        public void User_Adds_Channel()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -29,7 +29,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Person_Can_Add_Multiple_Channels()
+        public void User_Adds_Multiple_Channel()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -47,7 +47,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void EmailChannel_Send_Correct_Notification_Should_Not_Throw_Exception()
+        public void Email_Channel_Sends_Correct_Notification_Gives_No_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -64,7 +64,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void SlackChannel_Send_Correct_Notification_Should_Not_Throw_Exception()
+        public void Slack_Channel_Send_Correct_Notification_Gives_No_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -81,7 +81,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Multiple_Channels_Send_Correct_Notification_Should_Not_Throw_Exception()
+        public void Channels_Send_Correct_Notification_Gives_No_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -100,7 +100,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void EmailChannel_Send_Empty_Notification_Should_Throw_ArgumentNullException()
+        public void Email_Channel_Send_Empty_Notification_Gives_Null_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -118,7 +118,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void SlackChannel_Send_Empty_Notification_Should_Throw_ArgumentNullException()
+        public void Slack_Channel_Send_Empty_Notification_Gives_Null_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -136,7 +136,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void EmailChannel_Send_Out_Of_Bounds_Notification_Should_Throw_ArgumentOutOfRangeException()
+        public void Email_Channel_Send_Out_Of_Bounds_Notification_Gives_Out_Of_Range_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();
@@ -160,7 +160,7 @@ namespace AvansDevOpsTests
 
 
         [Fact]
-        public void SlackChannel_Send_Out_Of_Bounds_Notification_Should_Throw_ArgumentOutOfRangeException()
+        public void Slack_Channel_Send_Out_Of_Bounds_Notification_Gives_Out_Of_Range_Exception()
         {
             // Arrange
             ChannelFactory channelFactory = new ChannelFactory();

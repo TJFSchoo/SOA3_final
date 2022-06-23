@@ -14,7 +14,7 @@ namespace AvansDevOpsTests
     public class SCMTests
     {
         [Fact]
-        public void Adding_Source_To_Project_Should_Not_Throw_Exception()
+        public void Add_Source_To_Project_Gives_No_Exception()
         {
             // Arrange
             var p1 = new PersonModel("Tom", ERole.Lead);
@@ -33,7 +33,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Same_Source_To_Project_Should_Throw_NotSupportedException()
+        public void Add_Same_Source_To_Project_Gives_Not_Supported_Exception()
         {
             // Arrange
             var p1 = new PersonModel("Tom", ERole.Lead);
@@ -50,7 +50,7 @@ namespace AvansDevOpsTests
 
         }
 
-        [Fact] public void Adding_Commit_To_Source_Should_Not_Throw_Exception()
+        [Fact] public void Add_Commit_To_Source_Gives_No_Exception()
         {
             // Arrange
             var p1 = new PersonModel("Tom", ERole.Lead);
@@ -81,7 +81,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Same_Commit_To_Source_Should_Throw_NotSupportedException()
+        public void Add_Similar_Commit_To_Source_Gives_Not_Supported_Exception()
         {
             // Arrange
             var p1 = new PersonModel("Tom", ERole.Lead);
@@ -110,7 +110,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Deleting_An_Existing_Source_From_A_Project_Should_Not_Throw_Exception()
+        public void Delete_Existing_Source_From_Project_Gives_No_Exception()
         {
             // Arrange
             var p1 = new PersonModel("Tom", ERole.Lead);

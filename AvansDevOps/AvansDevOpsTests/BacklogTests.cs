@@ -15,7 +15,7 @@ namespace AvansDevOpsTests
     public class BacklogTests
     {
         [Fact]
-        public void Adding_A_Backlog_To_A_Project_Should_Not_Throw_Exception()
+        public void Adding_Backlog_To_Project_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -44,7 +44,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_BacklogItems_To_A_Project_Should_Not_Throw_Exception()
+        public void Adding_Backlog_Items_To_Project_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -71,7 +71,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Duplicate_BacklogItems_To_A_Backlog_Should_Throw_NotSupportedException()
+        public void Adding_Duplicate_Backlog_Items_To_Backlog_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -97,7 +97,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Tasks_To_A_BacklogItem_Should_Convert_BacklogItem_To_Another_Task()
+        public void Adding_Tasks_To_Backlog_Item_Converts_BacklogItem_To_Different_Task()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -140,7 +140,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_A_BacklogItem_State_Without_A_Sprint_Should_Throw_NotSupportedException()
+        public void Changing_Backlog_Item_State_Without_Sprint_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -167,20 +167,8 @@ namespace AvansDevOpsTests
 
     public partial class TodoStateBacklogItemsTests
     {
-
-        /***
-         *      _______        _          _____ _        _         _______        _       
-         *     |__   __|      | |        / ____| |      | |       |__   __|      | |      
-         *        | | ___   __| | ___   | (___ | |_ __ _| |_ ___     | | ___  ___| |_ ___ 
-         *        | |/ _ \ / _` |/ _ \   \___ \| __/ _` | __/ _ \    | |/ _ \/ __| __/ __|
-         *        | | (_) | (_| | (_) |  ____) | || (_| | ||  __/    | |  __/\__ \ |_\__ \
-         *        |_|\___/ \__,_|\___/  |_____/ \__\__,_|\__\___|    |_|\___||___/\__|___/
-         *                                                                                
-         *                                                                                
-         */
-
         [Fact]
-        public void Adding_And_Removing_Tasks_From_BacklogItem_In_InitialState_Should_Not_Throw_Exception()
+        public void Adding_Removing_Tasks_From_Backlog_Item_In_InitialState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -230,7 +218,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Should_Not_Throw_Exception()
+        public void Changing_Attributes_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -281,7 +269,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Previous_State_Should_Throw_NotSupportedException()
+        public void Previous_State_Change_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -326,7 +314,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_Should_Not_Throw_Exception()
+        public void To_Next_State_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -376,7 +364,7 @@ namespace AvansDevOpsTests
     public partial class DoingStateBacklogItemsTests
     {
         [Fact]
-        public void Adding_And_Removing_Tasks_From_BacklogItem_In_DoingState_Should_Not_Throw_Exception()
+        public void Adding_And_Removing_Tasks_From_BacklogItem_In_DoingState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -428,7 +416,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Should_Not_Throw_Exception()
+        public void Changing_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -481,7 +469,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Previous_State_Should_Not_Throw_Exception()
+        public void To_Previous_State_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -531,7 +519,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_With_Tasks_On_Todo_Should_Throw_NotSupportedException()
+        public void To_Next_State_With_Tasks_On_Todo_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -579,7 +567,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_With_No_Tasks_On_Todo_Should_Not_Throw_Exception()
+        public void To_Next_State_With_No_Tasks_On_Todo_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -635,7 +623,7 @@ namespace AvansDevOpsTests
     public partial class ReadyToTestStateBacklogItemsTests
     {
         [Fact]
-        public void Removing_Tasks_From_BacklogItem_In_ReadyToTestState_Should_Not_Throw_Exception()
+        public void Removing_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -695,7 +683,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Adding_Tasks_From_BacklogItem_In_ReadyToTestState_Should_Throw_NotSupportedException()
+        public void Adding_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -753,7 +741,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Should_Not_Throw_Exception()
+        public void Changing_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -813,7 +801,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Previous_State_Should_Not_Throw_Exception()
+        public void To_Previous_State_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -868,7 +856,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_With_Tasks_On_Todo_Or_Doing_Should_Throw_NotSupportedException()
+        public void To_Next_State_With_Tasks_On_Todo_Or_Doing_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -926,7 +914,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_With_No_Tasks_On_Todo_Or_Doing_Should_Not_Throw_Exception()
+        public void To_Next_State_With_No_Tasks_On_Todo_Or_Doing_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -989,7 +977,7 @@ namespace AvansDevOpsTests
     public partial class TestingStateBacklogItemsTest
     {
         [Fact]
-        public void Adding_And_Removing_Tasks_From_BacklogItem_In_TestState_Should_Throw_NotSupportedException()
+        public void Adding_And_Removing_Tasks_From_Backlog_Item_In_TestState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1051,7 +1039,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_BacklogItem_Name_In_TestState_Should_Not_Throw_Exception()
+        public void Changing_Backlog_Item_Name_In_TestState_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1115,7 +1103,7 @@ namespace AvansDevOpsTests
 
 
         [Fact]
-        public void Adding_Tasks_From_BacklogItem_In_TestingState_Should_Throw_NotSupportedException()
+        public void Adding_Tasks_To_Backlog_Item_In_TestingState_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1179,7 +1167,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void Changing_Name_or_Effort_or_Description_Should_Not_Throw_Exception()
+        public void Changing_Attributes_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1246,7 +1234,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Previous_State_Should_Not_Throw_Exception()
+        public void Change_To_Previous_State_Gives_No_Exception()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
@@ -1307,7 +1295,7 @@ namespace AvansDevOpsTests
         }
 
         [Fact]
-        public void To_Next_State_With_Tasks_On_Todo_Or_Doing_Should_Throw_NotSupportedException()
+        public void Change_To_Next_State_With_Tasks_Gives_NotSupportedException()
         {
             // Arrange
             Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
