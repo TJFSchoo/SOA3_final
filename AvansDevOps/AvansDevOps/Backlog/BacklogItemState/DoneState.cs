@@ -44,7 +44,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
             throw new NotSupportedException("[" + TAG + "] " + "Can't remove task when the backlogItem is finished");
         }
 
-        public void SetName(string newName)
+        public void SetName(string name)
         {
             throw new NotSupportedException("[" + TAG + "] " + "Can't set name when the backlogItem is finished");
         }
@@ -54,7 +54,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
             throw new NotSupportedException("[" + TAG + "] " + "Can't set description when the backlogItem is finished");
         }
 
-        public void SetEffort(int newEffort)
+        public void SetEffort(int effort)
         {
             throw new NotSupportedException("[" + TAG + "] " + "Can't set effort when the backlogItem is finished");
         }

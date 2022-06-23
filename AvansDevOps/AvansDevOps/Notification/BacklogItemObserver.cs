@@ -42,7 +42,6 @@ namespace AvansDevOps.Notification
         private void TodoState(BacklogItem backlogItem)
         {
             var scrumMaster = backlogItem.GetSprint().GetScrumMaster();
-
             scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, backlog item {backlogItem.GetDescription()} is in ToDo state.");
         }
 
@@ -78,7 +77,6 @@ namespace AvansDevOps.Notification
         private void TestingState(BacklogItem backlogItem)
         {
             var scrumMaster = backlogItem.GetSprint().GetScrumMaster();
-
             scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, backlog item {backlogItem.GetDescription()} is in Testing state.");
         }
 

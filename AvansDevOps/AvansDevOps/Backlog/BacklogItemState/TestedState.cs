@@ -33,9 +33,9 @@ namespace AvansDevOps.Backlog.BacklogItemState
             _backlogItem.RemoveTask(task);
         }
 
-        public void SetName(string newName)
+        public void SetName(string name)
         {
-            _backlogItem.SetName(newName);
+            _backlogItem.SetName(name);
         }
 
         public void SetDescription(string description)
@@ -43,9 +43,9 @@ namespace AvansDevOps.Backlog.BacklogItemState
             _backlogItem.SetDescription(description);
         }
 
-        public void SetEffort(int newEffort)
+        public void SetEffort(int effort)
         {
-            _backlogItem.SetEffort(newEffort);
+            _backlogItem.SetEffort(effort);
         }
 
         public void NextState()
