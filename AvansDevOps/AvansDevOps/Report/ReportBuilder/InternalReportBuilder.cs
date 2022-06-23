@@ -7,11 +7,11 @@ using AvansDevOps.Sprint;
 
 namespace AvansDevOps.Report.ReportBuilder
 {
-    public class FacultyReportBuilder: IReportBuilder
+    public class InternalReportBuilder: IReportBuilder
     {
         private readonly ReportModel _report;
 
-        public FacultyReportBuilder()
+        public InternalReportBuilder()
         {
             this._report = new ReportModel();
         }

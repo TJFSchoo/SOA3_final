@@ -21,7 +21,7 @@ namespace AvansDevOps.Report
 
         public static ReportModel BuildFacultyReport(ISprint sprint, List<string> contents, string reportVersion, DateTime date, EReportFormat format)
         {
-            IReportBuilder builder = new FacultyReportBuilder();
+            IReportBuilder builder = new InternalReportBuilder();
             builder.BuildContent(contents);
             builder.BuildFooter();
             builder.BuildHeader(sprint, reportVersion, date);
