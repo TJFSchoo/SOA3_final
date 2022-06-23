@@ -13,13 +13,7 @@ namespace AvansDevOpsTests
 {
     public class PersonTests
     {
-    }
-
-    public partial class Person_Notification_Tests
-    {
-
         [Fact]
-
         public void Person_Can_Add_One_Channel()
         {
             // Arrange
@@ -188,4 +182,5 @@ namespace AvansDevOpsTests
             Assert.Throws<ArgumentOutOfRangeException>(() => person.SendNotification(message));
         }
     }
+
 }

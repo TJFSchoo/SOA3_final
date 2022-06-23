@@ -15,12 +15,7 @@ using Xunit;
 
 namespace AvansDevOpsTests
 {
-    class NotificationTests
-    {
-
-    }
-
-    public partial class Backlog_Notification_Tests
+    public class NotificationTests
     {
         [Fact]
         public void Backlog_Can_Register_One_Observer()
@@ -250,13 +245,13 @@ namespace AvansDevOpsTests
 
             backlogItem.GetState().NextState();
             backlogItem.GetState().NextState();
-            
+
             // Backlog is in TestingState
             backlogItem.GetState().NextState();
 
             // Assert
             Assert.NotEmpty(backlogItem.GetObservers());
         }
-
     }
+
 }

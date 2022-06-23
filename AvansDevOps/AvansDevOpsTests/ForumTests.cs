@@ -11,11 +11,7 @@ using Xunit.Sdk;
 
 namespace AvansDevOpsTests
 {
-    class ForumTests
-    {
-    }
-
-    public partial class Forum_InitializedState_Tests
+    public class ForumTests
     {
         [Fact]
         public void NewThread_Can_Add_Thread()
@@ -29,7 +25,7 @@ namespace AvansDevOpsTests
             const string threadOneName = "ThreadOne title.";
 
             ThreadModel threadOne = new ThreadModel(threadOneName, currentDateTime, person, task);
-            
+
             // Act
             forum.NewThread(threadOne);
 
@@ -167,7 +163,7 @@ namespace AvansDevOpsTests
             Assert.Equal(ETaskState.Todo, task.GetState());
             Assert.Contains(threadOne, forum.GetThreads());
         }
-        
+
         [Fact]
         public void NewThread_Can_Add_Thread_On_Task_State_Active()
         {
@@ -189,7 +185,7 @@ namespace AvansDevOpsTests
             Assert.Equal(ETaskState.Active, task.GetState());
             Assert.Contains(threadOne, forum.GetThreads());
         }
-        
+
         [Fact]
         public void NewThread_Cant_Add_Thread_On_Task_State_Done_Should_Throw_NotSupportedException()
         {
@@ -469,4 +465,5 @@ namespace AvansDevOpsTests
             Assert.Throws<NotSupportedException>(() => thread.DeleteComment(commentOne));
         }
     }
+
 }
