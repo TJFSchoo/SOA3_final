@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AvansDevOps.Pipeline.PipelineState;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Utility
 {
@@ -10,7 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Utility
     {
 
         private readonly IPipeline _pipeline;
-        private readonly IUtilityStateBehaviour _behaviour;
+        private readonly IStateBehaviour _behaviour;
         public UtilityState(IPipeline pipeline)
         {
             _pipeline = pipeline;

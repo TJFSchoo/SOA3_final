@@ -1,4 +1,5 @@
 ﻿using System;
+using AvansDevOps.Pipeline.PipelineState;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Build
 {
-    public class BuildBehaviour : IBuildStateBehaviour
+    public class BuildBehaviour : IStateBehaviour
     {
         private readonly IPipeline _pipeline;
         private string _errors;

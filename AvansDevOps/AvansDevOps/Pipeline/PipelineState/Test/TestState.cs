@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AvansDevOps.Pipeline.PipelineStates.Analyze;
+using AvansDevOps.Pipeline.PipelineState;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Test
 {
@@ -11,7 +12,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Test
     {
 
         private readonly IPipeline _pipeline;
-        private readonly ITestStateBehaviour _behaviour;
+        private readonly IStateBehaviour _behaviour;
         public TestState(IPipeline pipeline)
         {
             _pipeline = pipeline;

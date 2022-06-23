@@ -10,18 +10,18 @@ namespace AvansDevOps.Report
 {
     public static class ReportDirector
     {
-        public static ReportModel BuildAvansReport(ISprint sprint, List<string> contents, string reportVersion, DateTime date, EReportFormat format)
+        public static ReportModel BuildPublicReport(ISprint sprint, List<string> contents, string reportVersion, DateTime date, EReportFormat format)
         {
-            IReportBuilder builder = new AvansReportBuilder();
+            IReportBuilder builder = new PublicReportBuilder();
             builder.BuildContent(contents);
             builder.BuildFooter();
             builder.BuildHeader(sprint, reportVersion, date);
             return builder.GetReport(format);
         }
 
-        public static ReportModel BuildAvansPlusReport(ISprint sprint, List<string> contents, string reportVersion, DateTime date, EReportFormat format)
+        public static ReportModel BuildFacultyReport(ISprint sprint, List<string> contents, string reportVersion, DateTime date, EReportFormat format)
         {
-            IReportBuilder builder = new AvansPlusReportBuilder();
+            IReportBuilder builder = new FacultyReportBuilder();
             builder.BuildContent(contents);
             builder.BuildFooter();
             builder.BuildHeader(sprint, reportVersion, date);

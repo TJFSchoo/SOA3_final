@@ -121,7 +121,7 @@ namespace AvansDevOps.Sprint
 
         public ReportModel GenerateReport(EReportBranding branding, List<string> contents, string version, DateTime date, EReportFormat format)
         {
-            return branding == EReportBranding.Avans ? ReportDirector.BuildAvansReport(this, contents, version, date, format) : ReportDirector.BuildAvansPlusReport(this, contents, version, date, format);
+            return branding == EReportBranding.Public ? ReportDirector.BuildPublicReport(this, contents, version, date, format) : ReportDirector.BuildFacultyReport(this, contents, version, date, format);
 
         }
     }

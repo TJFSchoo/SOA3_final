@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvansDevOps.Pipeline.PipelineStates.Utility
+namespace AvansDevOps.Pipeline.PipelineState
 {
-    public interface IUtilityStateBehaviour
+    internal interface IStateBehaviour
     {
         bool Execute();
         string GetErrorMessage();
+    
     }
 }

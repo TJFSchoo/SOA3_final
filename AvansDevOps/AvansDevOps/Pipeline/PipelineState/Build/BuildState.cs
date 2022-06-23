@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AvansDevOps.Pipeline.PipelineState;
 using AvansDevOps.Pipeline.PipelineStates.Test;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Build
@@ -11,7 +12,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Build
     {
 
         private readonly IPipeline _pipeline;
-        private readonly IBuildStateBehaviour _behaviour;
+        private readonly IStateBehaviour _behaviour;
         public BuildState(IPipeline pipeline)
         {
             _pipeline = pipeline;

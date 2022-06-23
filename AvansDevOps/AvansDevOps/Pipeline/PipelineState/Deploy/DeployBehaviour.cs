@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using AvansDevOps.Pipeline.PipelineState;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Deploy
 {
-    public class DeployBehaviour : IDeployStateBehaviour
+    public class DeployBehaviour : IStateBehaviour
     {
         private readonly IPipeline _pipeline;
         private string _errors;

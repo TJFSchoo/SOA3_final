@@ -8,8 +8,8 @@ namespace AvansDevOps.Report
 {
     public class Footer
     {
-        public string CompanyName { get; set; }
-        public string CompanyColor { get; set; }
-        public string CompanyWebsite { get; set; }
+        public string FooterName { get; set; }
+        public string FooterColor { get; set; }
+        public string FooterWebsite { get; set; }
     }
 }

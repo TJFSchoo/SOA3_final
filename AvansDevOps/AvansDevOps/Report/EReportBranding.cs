@@ -8,7 +8,7 @@ namespace AvansDevOps.Report
 {
     public enum EReportBranding
     {
-        Avans,
-        AvansPlus
+        Public,
+        Faculty
     }
 }

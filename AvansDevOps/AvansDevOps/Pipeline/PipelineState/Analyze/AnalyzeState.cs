@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AvansDevOps.Pipeline.PipelineStates.Deploy;
+using AvansDevOps.Pipeline.PipelineState;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Analyze
 {
@@ -11,7 +12,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Analyze
     {
 
         private readonly IPipeline _pipeline;
-        private readonly IAnalyzeStateBehaviour _behaviour;
+        private readonly IStateBehaviour _behaviour;
         public AnalyzeState(IPipeline pipeline)
         {
             _pipeline = pipeline;

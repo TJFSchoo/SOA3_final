@@ -4,10 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AvansDevOps.Pipeline.PipelineState;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Source
 {
-    public class SourceBehaviour : ISourceStateBehaviour
+    public class SourceBehaviour : IStateBehaviour
     {
         private readonly IPipeline _pipeline;
         private string _errors;

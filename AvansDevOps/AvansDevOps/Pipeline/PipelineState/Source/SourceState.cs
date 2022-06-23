@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AvansDevOps.Pipeline.PipelineStates.Dependencies;
+using AvansDevOps.Pipeline.PipelineState;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Source
 {
@@ -11,7 +12,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Source
     {
 
         private readonly IPipeline _pipeline;
-        private readonly ISourceStateBehaviour _behaviour;
+        private readonly IStateBehaviour _behaviour;
         public SourceState(IPipeline pipeline)
         {
             _pipeline = pipeline;

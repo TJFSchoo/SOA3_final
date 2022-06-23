@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AvansDevOps.Pipeline.PipelineState;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AvansDevOps.Pipeline.PipelineStates.Analyze
 {
-    public class AnalyzeBehaviour : IAnalyzeStateBehaviour
+    public class AnalyzeBehaviour : IStateBehaviour
     {
         private readonly IPipeline _pipeline;
         private readonly string _errors;

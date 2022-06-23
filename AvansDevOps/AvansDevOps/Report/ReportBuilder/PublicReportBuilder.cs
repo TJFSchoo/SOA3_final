@@ -7,11 +7,11 @@ using AvansDevOps.Sprint;
 
 namespace AvansDevOps.Report.ReportBuilder
 {
-    public class AvansPlusReportBuilder: IReportBuilder
+    public class PublicReportBuilder : IReportBuilder
     {
         private readonly ReportModel _report;
 
-        public AvansPlusReportBuilder()
+        public PublicReportBuilder()
         {
             this._report = new ReportModel();
         }
@@ -19,16 +19,19 @@ namespace AvansDevOps.Report.ReportBuilder
         public void BuildFooter()
         {
             this._report.Footer = new Footer()
-                { CompanyColor = "#d1ecbb", CompanyName = "Avans+", CompanyWebsite = "https://avansplus.nl" };
+                {
+                    FooterColor = "#ffff00", 
+                    FooterName = "Public", 
+                    FooterWebsite = "https://avans.nl/public"};
         }
 
         public void BuildHeader(ISprint sprint, string reportVersion, DateTime date)
         {
             this._report.Header = new Header()
             {
-                CompanyColor = "#d1ecbb",
-                CompanyName = "Avans+",
-                CompanyLogoURL = "https://avansplus.nl/logo.png",
+                HeaderColor = "#ffff00",
+                HeaderName = "Public",
+                HeaderLogoURL = "https://avans.nl/public/logo.png",
                 Date = date,
                 ReportVersion = reportVersion,
                 SprintName = sprint.GetName()
