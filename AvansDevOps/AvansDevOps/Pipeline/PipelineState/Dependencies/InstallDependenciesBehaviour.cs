@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Dependencies
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "InstallDependenciesBehaviour";
 
         public InstallDependenciesBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Dependencies
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Install Dependencies pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

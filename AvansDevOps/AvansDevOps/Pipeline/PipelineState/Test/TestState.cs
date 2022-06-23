@@ -13,6 +13,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Test
 
         private readonly IPipeline _pipeline;
         private readonly IStateBehaviour _behaviour;
+        private static string TAG = "TestState";
         public TestState(IPipeline pipeline)
         {
             _pipeline = pipeline;
@@ -24,7 +25,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Test
             var pipelineResult = _behaviour.Execute();
 
             if (!pipelineResult || _behaviour.GetErrorMessage() != null)
-                throw new NotSupportedException($"Pipeline failed: TestState: {_behaviour.GetErrorMessage()} ");
+                throw new NotSupportedException("[" + TAG + "] " + $"Pipeline failed: {_behaviour.GetErrorMessage()} ");
 
             this.NextState();
         }

@@ -12,6 +12,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Source
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "SourceBehaviour";
 
         public SourceBehaviour(IPipeline pipeline)
         {
@@ -20,8 +21,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Source
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Source pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

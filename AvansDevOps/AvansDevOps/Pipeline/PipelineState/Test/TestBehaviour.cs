@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Test
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "TestBehaviour";
 
         public TestBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Test
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Test pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

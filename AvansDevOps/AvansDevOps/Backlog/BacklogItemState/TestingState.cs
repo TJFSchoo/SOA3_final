@@ -9,6 +9,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
     public class TestingState : IBacklogItemState
     {
         private readonly BacklogItem _backlogItem;
+        private static string TAG = "TestingState";
 
         public TestingState(BacklogItem backlogItem)
         {
@@ -17,13 +18,13 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void AddTask(Task task)
         {
-            throw new NotSupportedException("Can't add more tasks when BacklogItem is being tested");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't add more tasks when BacklogItem is being tested");
 
         }
 
         public void RemoveTask(Task task)
         {
-            throw new NotSupportedException("Can't remove task when BacklogItem is being tested");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't remove task when BacklogItem is being tested");
 
         }
 
@@ -44,13 +45,11 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void NextState()
         {
-            // BR: Only allow done state when all tasks are done.
-
             foreach (var task in _backlogItem.GetTasks())
             {
                 if (task.GetState() != ETaskState.Done)
                     throw new NotSupportedException(
-                        "Can't set backlogItem state to done because not all tasks are done.");
+                        "[" + TAG + "] " + "Can't set backlogItem state to done because not all tasks are done.");
             }
 
             _backlogItem.ChangeState(new TestingState(_backlogItem));
@@ -58,7 +57,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void PreviousState()
         {
-            // BR: When the Lead Dev checks the DOD and finds something wrong, the backlogItem goes back to ready to test and all testers are notified again.
+            // If the lead developer is not satisfied, the backlog item goes back to Ready to Test state and all testers are notified.
             _backlogItem.ChangeState(new ReadyToTestState(_backlogItem));
         }
     }

@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Build
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "BuildBehaviour";
 
         public BuildBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Build
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Build pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

@@ -12,6 +12,7 @@ namespace AvansDevOps.Sprint.SprintState
     public class InitializedState : ISprintState
     {
         private readonly ISprint _sprint;
+        private static string TAG = "InitializedState";
 
         public InitializedState(ISprint sprint)
         {
@@ -25,7 +26,7 @@ namespace AvansDevOps.Sprint.SprintState
 
         public void SetReview(ReviewModel review)
         {
-            throw new NotSupportedException("Can't add a review in Initialized State");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add a review in Initialized state.");
         }
 
         public void SetStartDate(DateTime startDate)
@@ -61,7 +62,7 @@ namespace AvansDevOps.Sprint.SprintState
 
         public void ToPreviousState()
         {
-            throw new NotSupportedException("There is no previous state for initialized");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to go to older state.");
         }
 
 

@@ -12,7 +12,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
         void RemoveTask(Task task);
         void SetName(string name);
         void SetDescription(string description);
-        void SetEffort(int newEffort);
+        void SetEffort(int effort);
         void NextState();
         void PreviousState();
     }

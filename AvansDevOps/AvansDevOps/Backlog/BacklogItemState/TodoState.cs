@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace AvansDevOps.Backlog.BacklogItemStates
 {
-    public class TodoState : IBacklogItemState
+    public class ToDoState : IBacklogItemState
     {
 
         private readonly BacklogItem _backlogItem;
-        public TodoState(BacklogItem backlogItem)
+        private static string TAG = "TodoState";
+
+        public ToDoState(BacklogItem backlogItem)
         {
             _backlogItem = backlogItem;
         }

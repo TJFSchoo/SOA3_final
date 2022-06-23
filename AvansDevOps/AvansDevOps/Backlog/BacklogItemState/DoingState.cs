@@ -9,6 +9,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
     public class DoingState : IBacklogItemState
     {
         private readonly BacklogItem _backlogItem;
+        private static string TAG = "DoingState";
 
         public DoingState(BacklogItem backlogItem)
         {
@@ -48,7 +49,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
                 if (task.GetState() == ETaskState.Todo)
                 {
                     throw new NotSupportedException(
-                        "Backlog item can't go to Ready to test because there are still tasks with todo status");
+                        "[" + TAG + "] " + "Backlog item can't go to Ready to test because there are still tasks with todo status");
                 }
             }
 
@@ -57,7 +58,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void PreviousState()
         {
-            _backlogItem.ChangeState(new TodoState(_backlogItem));
+            _backlogItem.ChangeState(new ToDoState(_backlogItem));
         }
     }
 }

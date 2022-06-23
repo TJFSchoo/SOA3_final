@@ -11,6 +11,7 @@ namespace AvansDevOps.Backlog.BacklogItemState
     public class TestedState : IBacklogItemState
     {
         private readonly BacklogItem _backlogItem;
+        private static string TAG = "TestedState";
 
         public TestedState(BacklogItem backlogItem)
         {
@@ -54,11 +55,11 @@ namespace AvansDevOps.Backlog.BacklogItemState
 
         public void PreviousState()
         {
-            // If a tester is not satisfied with the already-tested backlogItem, it can only go back to ToDo state, not to Doing state.
+            // If a tester is not satisfied with the tested backlog item, it can only go back to ToDo state, NOT to Ready to Test state.
             // We also notify the scrum master
             var scrumMaster = _backlogItem.GetSprint().GetScrumMaster();
             scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, tester has assigned backlog item from Tested state to ToDo state. Please check.");
-            _backlogItem.ChangeState(new TodoState(_backlogItem));
+            _backlogItem.ChangeState(new ToDoState(_backlogItem));
         }
     }
 }

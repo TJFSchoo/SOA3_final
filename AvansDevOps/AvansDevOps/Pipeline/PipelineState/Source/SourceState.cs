@@ -13,6 +13,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Source
 
         private readonly IPipeline _pipeline;
         private readonly IStateBehaviour _behaviour;
+        private static string TAG = "SourceState";
         public SourceState(IPipeline pipeline)
         {
             _pipeline = pipeline;
@@ -24,7 +25,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Source
             var pipelineResult = _behaviour.Execute();
 
             if (!pipelineResult || _behaviour.GetErrorMessage() != null)
-                throw new NotSupportedException($"Pipeline failed: SourceState: {_behaviour.GetErrorMessage()} ");
+                throw new NotSupportedException("[" + TAG + "] " + $"Pipeline failed: {_behaviour.GetErrorMessage()} ");
 
             this.NextState();
         }

@@ -21,6 +21,7 @@ namespace AvansDevOps.Backlog
         private IBacklogItemState _state;
         private readonly BacklogModel _backlogReference;
         private ISprint _sprintReference;
+        private static string TAG = "BacklogItem";
 
         public BacklogItem(string name, string description, PersonModel assignedPerson, int effort, BacklogModel backlog)
         {
@@ -28,7 +29,7 @@ namespace AvansDevOps.Backlog
             _description = description;
             _assignedPerson = assignedPerson;
             _effort = effort;
-            _state = new TodoState(this);
+            _state = new ToDoState(this);
             _backlogReference = backlog;
         }
 
@@ -92,7 +93,7 @@ namespace AvansDevOps.Backlog
             // The state of the Backlog Item can only be changed if it has a sprint reference
             if (_sprintReference == null)
                 throw new NotSupportedException(
-                    "Unable to change the state of a backlogItem because it is not in a sprint.");
+                    "[" + TAG + "] " + "Unable to change the state of a backlogItem because it is not in a sprint.");
             _state = state;
             NotifyObservers();
         }
@@ -134,7 +135,7 @@ namespace AvansDevOps.Backlog
         {
             if (_tasks == null)
             {
-                throw new NotSupportedException("No tasks found.");
+                throw new NotSupportedException("[" + TAG + "] " + "No tasks found.");
             }
 
             return _tasks.Remove(task);

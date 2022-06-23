@@ -12,6 +12,7 @@ namespace AvansDevOps.Sprint.SprintState
     public class ActiveState : ISprintState
     {
         private readonly ISprint _sprint;
+        private static string TAG = "ActiveState";
 
         public ActiveState(ISprint sprint)
         {
@@ -20,22 +21,22 @@ namespace AvansDevOps.Sprint.SprintState
 
         public void SetName(string name)
         {
-            throw new NotSupportedException("Can't change name when sprint is active");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to change name when sprint is in active state.");
         }
 
         public void SetReview(ReviewModel review)
         {
-            throw new NotSupportedException("Can't add a review when sprint is active.");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add a review when sprint is in active state.");
         }
 
         public void SetStartDate(DateTime startDate)
         {
-            throw new NotSupportedException("Can't change startDate when sprint is active");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to change startDate when sprint is in active state.");
         }
 
         public void SetEndDate(DateTime endDate)
         {
-            throw new NotSupportedException("Can't change endDate when sprint is active");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to change endDate when sprint is in active state.");
         }
 
         public void AddDeveloper(PersonModel developer)
@@ -45,8 +46,7 @@ namespace AvansDevOps.Sprint.SprintState
 
         public void AddToSprintBacklog(BacklogItem backlogItem)
         {
-            // Probably we should allow this since this can happen in practice a lot.
-            throw new NotSupportedException("Can't add to sprint backlog when sprint is active");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add to sprint backlog when sprint is in active state.");
         }
 
         public void StartStateAction()

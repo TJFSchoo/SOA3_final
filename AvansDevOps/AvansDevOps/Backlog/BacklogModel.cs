@@ -11,6 +11,7 @@ namespace AvansDevOps.Backlog
     {
         private readonly Project _project;
         private readonly List<BacklogItem> _backlogItems;
+        private static string TAG = "BacklogModel";
 
         public BacklogModel(Project project)
         {
@@ -26,7 +27,7 @@ namespace AvansDevOps.Backlog
         public void AddBacklogItem(BacklogItem backlogItem)
         {
             if (_backlogItems.Contains(backlogItem))
-                throw new NotSupportedException("Can't add the same backlogItem twice");
+                throw new NotSupportedException("[" + TAG + "] " + "Unable to add the same Backlog Item twice.");
 
             _backlogItems.Add(backlogItem);
         }

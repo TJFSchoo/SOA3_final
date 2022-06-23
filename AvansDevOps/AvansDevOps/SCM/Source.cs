@@ -10,6 +10,7 @@ namespace AvansDevOps.SCM
     {
         private readonly string _name;
         private readonly List<ICommit> _commits;
+        private static string TAG = "Source";
 
         public Source(string name)
         {
@@ -30,7 +31,7 @@ namespace AvansDevOps.SCM
         public void AddCommit(ICommit commit)
         {
             if (_commits.Contains(commit))
-                throw new NotSupportedException("Can't add the same commit twice");
+                throw new NotSupportedException("[" + TAG + "] " + "Unable to add the same commit more than once.");
 
             _commits.Add(commit);
         }

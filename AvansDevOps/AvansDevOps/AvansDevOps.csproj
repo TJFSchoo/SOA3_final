@@ -53,7 +53,7 @@
     <Compile Include="Backlog\BacklogItemState\IBacklogItemState.cs" />
     <Compile Include="Backlog\BacklogItemState\ReadyToTestState.cs" />
     <Compile Include="Backlog\BacklogItemState\TestingState.cs" />
-    <Compile Include="Backlog\BacklogItemState\TodoState.cs" />
+    <Compile Include="Backlog\BacklogItemState\ToDoState.cs" />
     <Compile Include="Backlog\ETaskState.cs" />
     <Compile Include="Backlog\Task.cs" />
     <Compile Include="Channel\ChannelFactory.cs" />

@@ -7,6 +7,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
     public class DoneState : IBacklogItemState
     {
         private readonly BacklogItem _backlogItem;
+        private static string TAG = "DoneState";
 
         public DoneState(BacklogItem backlogItem)
         {
@@ -35,37 +36,37 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void AddTask(Task task)
         {
-            throw new NotSupportedException("Can't add task when the backlogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't add task when the backlogItem is finished");
         }
 
         public void RemoveTask(Task task)
         {
-            throw new NotSupportedException("Can't remove task when the backlogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't remove task when the backlogItem is finished");
         }
 
         public void SetName(string newName)
         {
-            throw new NotSupportedException("Can't set name when the backlogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't set name when the backlogItem is finished");
         }
 
         public void SetDescription(string description)
         {
-            throw new NotSupportedException("Can't set description when the backlogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't set description when the backlogItem is finished");
         }
 
         public void SetEffort(int newEffort)
         {
-            throw new NotSupportedException("Can't set effort when the backlogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't set effort when the backlogItem is finished");
         }
 
         public void NextState()
         {
-            throw new NotSupportedException("Can't go to next state. BacklogItem is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't go to next state. BacklogItem is finished");
         }
 
         public void PreviousState()
         {
-            throw new NotSupportedException("Can't undo the state of backlogItem, because it is already finished.");
+            throw new NotSupportedException("[" + TAG + "] " + "Can't undo the state of backlogItem, because it is already finished.");
         }
     }
 }

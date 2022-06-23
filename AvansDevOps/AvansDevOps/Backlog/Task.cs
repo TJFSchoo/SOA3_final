@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 using AvansDevOps.Person;
+using System.Threading.Tasks;
 
 namespace AvansDevOps.Backlog
 {
     public class Task
     {
         private string _description;
+        private static string TAG = "Task";
+
         private ETaskState _state;
         private PersonModel _assignedPerson;
 
@@ -18,13 +20,14 @@ namespace AvansDevOps.Backlog
         {
             _description = description;
             _assignedPerson = assignedPerson;
+
             _state = ETaskState.Todo;
         }
 
         public void SetDescription(string newDescription)
         {
             if (_state == ETaskState.Done)
-                throw new NotSupportedException("Can't change description of task when tasked is marked as done");
+                throw new NotSupportedException("[" + TAG + "] " + "Unable to change description of task when tasked is marked as done");
             _description = newDescription;
         }
 
@@ -42,7 +45,7 @@ namespace AvansDevOps.Backlog
         {
             if (_state == ETaskState.Done)
                 throw new NotSupportedException(
-                    "Can't change the task assignee once the task has been marked as done.");
+                    "[" + TAG + "] " + "Unable to change task assignee once the task has been marked as done.");
             _assignedPerson = newAssignee;
         }
 
@@ -64,10 +67,10 @@ namespace AvansDevOps.Backlog
                     break;
 
                 case ETaskState.Done:
-                    throw new NotSupportedException("Task is already done. Can't go to next state");
+                    throw new NotSupportedException("[" + TAG + "] " + "Task is on status Done. Unable to assign new state");
 
                 default:
-                    throw new NotSupportedException("Can't find state.");
+                    throw new NotSupportedException("[" + TAG + "] " + "Unable to retrieve state.");
 
             }
         }
@@ -77,7 +80,7 @@ namespace AvansDevOps.Backlog
             switch (_state)
             {
                 case ETaskState.Todo:
-                    throw new NotSupportedException("Task is already on todo. Can't go to previous state.");
+                    throw new NotSupportedException("[" + TAG + "] " + "Task is on status ToDo. Unable to assign old state.");
 
                 case ETaskState.Active:
                     _state = ETaskState.Todo;
@@ -88,7 +91,7 @@ namespace AvansDevOps.Backlog
                     break;
 
                 default:
-                    throw new NotSupportedException("Can't find state.");
+                    throw new NotSupportedException("[" + TAG + "] " + "Unable to retrieve state.");
 
             }
         }

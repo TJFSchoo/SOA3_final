@@ -9,6 +9,7 @@ namespace AvansDevOps.Channel
     public class EmailAdaptee
     {
         private readonly string _email;
+        private static string TAG = "EmailAdaptee";
 
         public EmailAdaptee(string email)
         {
@@ -17,13 +18,15 @@ namespace AvansDevOps.Channel
 
         public void SendMessage(string message)
         {
-            // Validate Inputs
+            // Must have content
             if(string.IsNullOrWhiteSpace(message))
-                throw new ArgumentNullException(nameof(message), "E-mail cannot be empty");
+                throw new ArgumentNullException(nameof(message), 
+                    "[" + TAG + "] " + "Body can't be empty.");
 
-            // Must be less than or equal 1600 characters
-            if (message.Length >= 1600)
-                throw new ArgumentOutOfRangeException(nameof(message), "E-mail cannot be longer than 1600 chars");
+            // Less than or equal 1000 characters
+            if (message.Length >= 1000)
+                throw new ArgumentOutOfRangeException(nameof(message), 
+                    "[" + TAG + "] " + "Body can't be longer than 1000 characters.");
 
             Console.WriteLine($"[E-mail recipient: {this._email}] Body: {message}");
         }

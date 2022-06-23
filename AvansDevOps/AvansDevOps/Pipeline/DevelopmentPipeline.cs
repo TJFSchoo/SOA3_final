@@ -41,13 +41,13 @@ namespace AvansDevOps.Pipeline
         public void OnError()
         {
             // Pipeline failed, send notification
-            _sprint.GetScrumMaster().SendNotification($"Hi {_sprint.GetScrumMaster().GetName()}, Development Pipeline for {_sprint.GetName()} has failed.");
+            _sprint.GetScrumMaster().SendNotification($"Attention {_sprint.GetScrumMaster().GetName()}, Development Pipeline for {_sprint.GetName()} failed.");
         }
 
         public void OnSuccess()
         {
             // Pipeline succeeded, send notification
-            _sprint.GetScrumMaster().SendNotification($"Hi {_sprint.GetScrumMaster().GetName()}, Development Pipeline for {_sprint.GetName()} has finished successfully.");
+            _sprint.GetScrumMaster().SendNotification($"Attention {_sprint.GetScrumMaster().GetName()}, Development Pipeline for {_sprint.GetName()} finished.");
         }
     }
 }

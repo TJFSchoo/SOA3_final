@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Deploy
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "DeployBehaviour";
 
         public DeployBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Deploy
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Deploy pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

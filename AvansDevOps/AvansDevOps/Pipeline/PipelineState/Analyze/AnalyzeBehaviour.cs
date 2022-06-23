@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Analyze
     {
         private readonly IPipeline _pipeline;
         private readonly string _errors;
+        private static string TAG = "AnalyzeBehaviour";
 
         public AnalyzeBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Analyze
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Analyze pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Executing.");
             return true;
         }
 

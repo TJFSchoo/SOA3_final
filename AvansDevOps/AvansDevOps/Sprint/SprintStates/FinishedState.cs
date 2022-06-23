@@ -15,6 +15,7 @@ namespace AvansDevOps.Sprint.SprintState
     {
         private readonly ISprint _sprint;
         private IPipeline _pipeline;
+        private static string TAG = "FinishedState";
 
         public FinishedState(ISprint sprint)
         {
@@ -23,7 +24,7 @@ namespace AvansDevOps.Sprint.SprintState
 
         public void SetName(string name)
         {
-            throw new NotSupportedException("Can't change name when sprint is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to modify name when sprint is in finished state.");
         }
 
         public void SetReview(ReviewModel review)
@@ -34,28 +35,28 @@ namespace AvansDevOps.Sprint.SprintState
             }
             else
             {
-                throw new SecurityException("Only the scrum master can add a review to a sprint");
+                throw new SecurityException("[" + TAG + "] " + "Only scrum master can add a review to a sprint.");
             }
         }
 
         public void SetStartDate(DateTime startDate)
         {
-            throw new NotSupportedException("Can't change startDate when sprint is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to change start date when sprint is in finished state.");
         }
 
         public void SetEndDate(DateTime endDate)
         {
-            throw new NotSupportedException("Can't change endDate when sprint is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to change end date when sprint is in finished state.");
         }
 
         public void AddDeveloper(PersonModel developer)
         {
-            throw new NotSupportedException("Can't add developer when sprint is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add developer when sprint is in finished state.");
         }
 
         public void AddToSprintBacklog(BacklogItem backlogItem)
         {
-            throw new NotSupportedException("Can't add backlogItem when sprint is finished");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add backlog item when sprint is in finished state.");
         }
 
         public void StartStateAction()
