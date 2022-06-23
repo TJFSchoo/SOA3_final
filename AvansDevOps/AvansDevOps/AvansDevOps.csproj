@@ -101,7 +101,7 @@
     <Compile Include="Report\Header.cs" />
     <Compile Include="Report\IReportBuilder.cs" />
     <Compile Include="Report\ReportModel.cs" />
-    <Compile Include="Report\ReportBuilder\InternalReportBuilder.cs" />
+    <Compile Include="Report\ReportBuilder\FacultyReportBuilder.cs" />
     <Compile Include="Report\ReportBuilder\PublicReportBuilder.cs" />
     <Compile Include="Report\ReportDirector.cs" />
     <Compile Include="Sprint\Review\ReviewModel.cs" />
