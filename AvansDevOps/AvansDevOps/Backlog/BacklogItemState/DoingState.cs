@@ -43,7 +43,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void NextState()
         {
-            // BR: Only allow ready to test state when all tasks are active or done
+            // Only allow ready to test state when all tasks are active or done
             foreach (var task in _backlogItem.GetTasks())
             {
                 if (task.GetState() == ETaskState.Todo)

@@ -13,7 +13,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
         {
             _backlogItem = backlogItem;
 
-            // BR: Let's send every developer from the backlogItem a notification that their item is approved.
+            // Let's send every developer from the backlogItem a notification that their item is approved.
 
             var tempList = new List<PersonModel>();
 

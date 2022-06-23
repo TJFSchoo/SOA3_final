@@ -18,12 +18,12 @@ namespace AvansDevOpsTests
         public void Add_Backlog_To_Project_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -47,10 +47,10 @@ namespace AvansDevOpsTests
         public void Add_Backlog_Items_To_Project_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Harold", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
 
@@ -67,17 +67,17 @@ namespace AvansDevOpsTests
 
             // Assert
             Assert.Contains(backlogItem1, project.GetBacklog().GetBacklogItems());
-            Assert.Equal("TodoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
+            Assert.Equal("ToDoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
 
         [Fact]
         public void Add_Duplicate_Backlog_Items_To_Backlog_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
 
@@ -100,10 +100,10 @@ namespace AvansDevOpsTests
         public void Add_Tasks_To_Backlog_Item_Converts_BacklogItem_To_Different_Task()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
 
@@ -143,10 +143,10 @@ namespace AvansDevOpsTests
         public void Change_Backlog_Item_State_Without_Sprint_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
 
@@ -168,12 +168,12 @@ namespace AvansDevOpsTests
         public void Add_Removing_Tasks_From_Backlog_Item_In_InitialState_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -218,12 +218,12 @@ namespace AvansDevOpsTests
         public void Change_Attributes_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -269,12 +269,12 @@ namespace AvansDevOpsTests
         public void Previous_State_Change_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -314,12 +314,12 @@ namespace AvansDevOpsTests
         public void To_Next_State_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -360,12 +360,12 @@ namespace AvansDevOpsTests
         public void Add_And_Removing_Tasks_From_BacklogItem_In_DoingState_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -412,12 +412,12 @@ namespace AvansDevOpsTests
         public void Change_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -465,12 +465,12 @@ namespace AvansDevOpsTests
         public void To_Previous_State_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Harold", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -508,19 +508,19 @@ namespace AvansDevOpsTests
             backlogItem1.GetState().PreviousState();
 
             // Assert
-            Assert.Equal("TodoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
+            Assert.Equal("ToDoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
 
         [Fact]
         public void To_Next_State_With_Tasks_On_Todo_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -563,12 +563,12 @@ namespace AvansDevOpsTests
         public void To_Next_State_With_No_Tasks_On_Todo_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -615,12 +615,12 @@ namespace AvansDevOpsTests
         public void Remove_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -675,12 +675,12 @@ namespace AvansDevOpsTests
         public void Add_Tasks_From_BacklogItem_In_ReadyToTestState_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -733,12 +733,12 @@ namespace AvansDevOpsTests
         public void ReadyToTest_State_Change_Name_or_Effort_or_Description_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -793,12 +793,12 @@ namespace AvansDevOpsTests
         public void ReadyToTest_State_To_Previous_State_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Harold", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -841,19 +841,19 @@ namespace AvansDevOpsTests
 
             // Assert
             backlogItem1.GetState().PreviousState();
-            Assert.Equal("TodoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
+            Assert.Equal("ToDoState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
 
         [Fact]
         public void To_Next_State_With_Tasks_On_Todo_Or_Doing_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -906,12 +906,12 @@ namespace AvansDevOpsTests
         public void To_Next_State_With_No_Tasks_On_Todo_Or_Doing_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -965,12 +965,12 @@ namespace AvansDevOpsTests
         public void Add_And_Removing_Tasks_From_Backlog_Item_In_TestState_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -1027,12 +1027,12 @@ namespace AvansDevOpsTests
         public void Change_Backlog_Item_Name_In_TestState_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -1091,12 +1091,12 @@ namespace AvansDevOpsTests
         public void Add_Tasks_To_Backlog_Item_In_TestingState_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -1155,12 +1155,12 @@ namespace AvansDevOpsTests
         public void Test_State_Change_Attributes_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -1222,12 +1222,12 @@ namespace AvansDevOpsTests
         public void Change_To_Previous_State_Gives_No_Exception()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
@@ -1283,12 +1283,12 @@ namespace AvansDevOpsTests
         public void Change_To_Next_State_With_Tasks_Gives_NotSupportedException()
         {
             // Arrange
-            Project project = new Project("Test Project", new PersonModel("Bas", ERole.Lead));
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
             SprintFactory factory = new SprintFactory();
 
-            PersonModel p1 = new PersonModel("Tom", ERole.Developer);
-            p1.AddChannel(new EmailChannel("tom@test.nl"));
-            p1.AddChannel(new SlackChannel("tomslack"));
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            p1.AddChannel(new EmailChannel("harold@test.nl"));
+            p1.AddChannel(new SlackChannel("haroldslack"));
             PersonModel p2 = new PersonModel("Henk", ERole.Developer);
             p2.AddChannel(new EmailChannel("henk@test.nl"));
             PersonModel p3 = new PersonModel("Peter", ERole.Tester);
