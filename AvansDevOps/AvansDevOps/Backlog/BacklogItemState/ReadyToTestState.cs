@@ -9,6 +9,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
     public class ReadyToTestState : IBacklogItemState
     {
         private readonly BacklogItem _backlogItem;
+        private static string TAG = "ReadyToTestState";
 
         public ReadyToTestState(BacklogItem backlogItem)
         {
@@ -16,7 +17,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
             foreach (var tester in backlogItem.GetBacklog().GetProject().GetTesters())
             {
-                tester.SendNotification($"Hello tester {tester.GetName()}, backlog item {backlogItem.GetDescription()} is in Ready to Test state.");
+                tester.SendNotification($"Attention {tester.GetName()}, backlog item {backlogItem.GetDescription()} is in Ready to Test state.");
             }
 
         }
@@ -67,7 +68,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
             // We also notify the scrum master
             var scrumMaster = _backlogItem.GetSprint().GetScrumMaster();
             scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, tester has assigned backlog item from Ready to Test state to ToDo state. Please check.");
-            _backlogItem.ChangeState(new TodoState(_backlogItem));
+            _backlogItem.ChangeState(new ToDoState(_backlogItem));
         }
     }
 }
