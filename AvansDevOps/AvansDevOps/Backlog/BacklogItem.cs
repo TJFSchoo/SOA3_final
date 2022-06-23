@@ -89,10 +89,10 @@ namespace AvansDevOps.Backlog
 
         public void ChangeState(IBacklogItemState state)
         {
-            // BR: The state of the backlogItem can only be changed once it has a sprint reference
+            // The state of the Backlog Item can only be changed if it has a sprint reference
             if (_sprintReference == null)
                 throw new NotSupportedException(
-                    "Can't change the state of a backlogItem because it is not in a sprint");
+                    "Unable to change the state of a backlogItem because it is not in a sprint.");
             _state = state;
             NotifyObservers();
         }
@@ -109,8 +109,7 @@ namespace AvansDevOps.Backlog
 
         public void AddTask(Task task)
         {
-            // BR: If a backlogItem has tasks, remove the assignedPerson, and create a new task for the assignedPerson with the description
-
+            // If a Backlog Item has tasks, remove the assigned Person and create a new task for the assigned Person
             if (_assignedPerson  != null && task != null)
             {
                 var convertedBacklogItemToTask = new Task(_description, _assignedPerson);
@@ -135,7 +134,7 @@ namespace AvansDevOps.Backlog
         {
             if (_tasks == null)
             {
-                throw new NotSupportedException("There are no tasks in this backlogItem");
+                throw new NotSupportedException("No tasks found.");
             }
 
             return _tasks.Remove(task);

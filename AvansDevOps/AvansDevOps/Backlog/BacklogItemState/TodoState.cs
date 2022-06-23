@@ -46,7 +46,7 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void PreviousState()
         {
-            throw new NotSupportedException("Can't change TodoState. There is no previous state");
+            throw new NotSupportedException("[" + TAG + "] " + "There is no previous state.");
         }
     }
 }

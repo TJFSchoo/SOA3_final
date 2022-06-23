@@ -15,19 +15,16 @@ namespace AvansDevOps.Backlog.BacklogItemState
         public TestedState(BacklogItem backlogItem)
         {
             _backlogItem = backlogItem;
-
-            // BacklogItem is tested, notify owner.
-
             PersonModel owner = backlogItem.GetBacklog().GetProject().GetProductOwner();
 
-            owner.SendNotification($"Hello owner {owner.GetName()}, BacklogItem {backlogItem.GetDescription()} is tested");
+            owner.SendNotification($"Attention {owner.GetName()}, backlog item {backlogItem.GetDescription()} has been successfully tested.");
             
 
         }
 
         public void AddTask(Task task)
         {
-            throw new NotSupportedException("Can't add more tasks when BacklogItem is already tested");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add more tasks when backlog item is already tested.");
         }
 
         public void RemoveTask(Task task)
@@ -57,10 +54,10 @@ namespace AvansDevOps.Backlog.BacklogItemState
 
         public void PreviousState()
         {
-            // BR: If a tester is not satisfied with the already-tested backlogItem, it can only go back to To-do, not to doing.
-            // BR: We also notify the scrum master
+            // If a tester is not satisfied with the already-tested backlogItem, it can only go back to ToDo state, not to Doing state.
+            // We also notify the scrum master
             var scrumMaster = _backlogItem.GetSprint().GetScrumMaster();
-            scrumMaster.SendNotification($"Hello {scrumMaster.GetName()}, your devs have messed up. Please check in with testers");
+            scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, tester has assigned backlog item from Tested state to ToDo state. Please check.");
             _backlogItem.ChangeState(new TodoState(_backlogItem));
         }
     }

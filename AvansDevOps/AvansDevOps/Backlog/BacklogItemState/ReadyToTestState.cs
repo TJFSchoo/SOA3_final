@@ -14,17 +14,16 @@ namespace AvansDevOps.Backlog.BacklogItemStates
         {
             _backlogItem = backlogItem;
 
-            // BacklogItem is ready to test, notify testers.
             foreach (var tester in backlogItem.GetBacklog().GetProject().GetTesters())
             {
-                tester.SendNotification($"Hello tester {tester.GetName()}, BacklogItem {backlogItem.GetDescription()} is ready to test");
+                tester.SendNotification($"Hello tester {tester.GetName()}, backlog item {backlogItem.GetDescription()} is in Ready to Test state.");
             }
 
         }
 
         public void AddTask(Task task)
         {
-            throw new NotSupportedException("Can't add more tasks when BacklogItem is ready to test");
+            throw new NotSupportedException("[" + TAG + "] " + "Unable to add more tasks when backlog item is in Ready to Test state.");
         }
 
         public void RemoveTask(Task task)
@@ -49,13 +48,13 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void NextState()
         {
-            // BR: Only allow ready to test state when all tasks are active or done
+            // Only allow ready to test state when all tasks are active or done
             foreach (var task in _backlogItem.GetTasks())
             {
                 if (task.GetState() != ETaskState.Done)
                 {
                     throw new NotSupportedException(
-                        "Backlog item can't go to testing because there are still tasks with todo or active status");
+                        "[" + TAG + "] " + "Backlog item is unable to go to Testing state due to existing tasks in ToDo or Active state.");
                 }
             }
 
@@ -64,10 +63,10 @@ namespace AvansDevOps.Backlog.BacklogItemStates
 
         public void PreviousState()
         {
-            // BR: If a tester is not satisfied with the backlogItem, it can only go back to To-do, not to doing.
-            // BR: We also notify the scrum master
+            // If a tester is not satisfied with the backlog item, it can only go back to ToDo state.
+            // We also notify the scrum master
             var scrumMaster = _backlogItem.GetSprint().GetScrumMaster();
-            scrumMaster.SendNotification($"Hello {scrumMaster.GetName()}, your devs have messed up. Please check in with testers");
+            scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, tester has assigned backlog item from Ready to Test state to ToDo state. Please check.");
             _backlogItem.ChangeState(new TodoState(_backlogItem));
         }
     }

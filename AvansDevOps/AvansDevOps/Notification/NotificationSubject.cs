@@ -9,6 +9,7 @@ namespace AvansDevOps.Notification
     public abstract class NotificationSubject : ISubject
     {
         private readonly List<IObserver> _observers;
+        private static string TAG = "NotificationSubject";
         protected NotificationSubject()
         {
             _observers = new List<IObserver>();
@@ -17,7 +18,8 @@ namespace AvansDevOps.Notification
         public void Register(IObserver observer)
         {
             if (_observers.Contains(observer))
-                throw new NotSupportedException("Observer is already registered.");
+                throw new NotSupportedException(
+                    "[" + TAG + "] " + "Observer is already registered.");
 
             _observers.Add(observer);
         }
@@ -25,7 +27,8 @@ namespace AvansDevOps.Notification
         public void Unregister(IObserver observer)
         {
             if (!_observers.Contains(observer))
-                throw new NotSupportedException("Observer is not registered.");
+                throw new NotSupportedException(
+                    "[" + TAG + "] " + "Observer is not registered.");
 
             _observers.Remove(observer);
         }

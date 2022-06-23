@@ -43,7 +43,7 @@ namespace AvansDevOps.Notification
         {
             var scrumMaster = backlogItem.GetSprint().GetScrumMaster();
 
-            scrumMaster.SendNotification($"Hello scrum master {scrumMaster.GetName()}, BacklogItem {backlogItem.GetDescription()} is in ToDo state.");
+            scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, backlog item {backlogItem.GetDescription()} is in ToDo state.");
         }
 
         private void DoingState(BacklogItem backlogItem)
@@ -62,7 +62,7 @@ namespace AvansDevOps.Notification
             // Send messages
             foreach (var involvedPerson in tempList)
             {
-                involvedPerson.SendNotification($"Hi {involvedPerson.GetName()}, backlog item {backlogItem.GetName()} is in doing state.");
+                involvedPerson.SendNotification($"Attention {involvedPerson.GetName()}, backlog item {backlogItem.GetName()} is in Doing state.");
             }
         }
 
@@ -71,7 +71,7 @@ namespace AvansDevOps.Notification
             // BacklogItem is ready to test, notify testers.
             foreach (var tester in backlogItem.GetBacklog().GetProject().GetTesters())
             {
-                tester.SendNotification($"Hello tester {tester.GetName()}, BacklogItem {backlogItem.GetDescription()} is ready to test");
+                tester.SendNotification($"Attention {tester.GetName()}, backlog item {backlogItem.GetDescription()} is in Ready to Test state.");
             }
         }
 
@@ -79,7 +79,7 @@ namespace AvansDevOps.Notification
         {
             var scrumMaster = backlogItem.GetSprint().GetScrumMaster();
 
-            scrumMaster.SendNotification($"Hello scrum master {scrumMaster.GetName()}, BacklogItem {backlogItem.GetDescription()} is in Testing state.");
+            scrumMaster.SendNotification($"Attention {scrumMaster.GetName()}, backlog item {backlogItem.GetDescription()} is in Testing state.");
         }
 
         private void DoneState(BacklogItem backlogItem)
@@ -100,7 +100,7 @@ namespace AvansDevOps.Notification
             // Send messages
             foreach (var involvedPerson in tempList)
             {
-                involvedPerson.SendNotification($"Hi {involvedPerson.GetName()}, backlog item {backlogItem.GetName()} is done! Kudos!");
+                involvedPerson.SendNotification($"Attention {involvedPerson.GetName()}, backlog item {backlogItem.GetName()} is in Done state.");
             }
         }
     }

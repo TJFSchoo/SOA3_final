@@ -22,6 +22,7 @@ namespace AvansDevOps.Sprint
         private readonly List<PersonModel> _developers;
         private readonly List<BacklogItem> _sprintBacklogItems;
         private ReviewModel _review;
+        private static string TAG = "ReleaseSprint";
 
         public ReleaseSprint(string name, DateTime startDate, DateTime endDate, Project project, PersonModel scrumMaster, List<PersonModel> developers)
         {
@@ -58,7 +59,7 @@ namespace AvansDevOps.Sprint
         public void AddDeveloper(PersonModel person)
         {
             if (this._developers.Contains(person))
-                throw new NotSupportedException("Can't add the same person twice");
+                throw new NotSupportedException("[" + TAG + "] " + "Unable to add the same person more than once.");
             this._developers.Add(person);
         }
 
