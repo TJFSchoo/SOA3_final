@@ -1382,6 +1382,165 @@ namespace AvansDevOpsTests
             Assert.Throws<NotSupportedException>(() => task.NextState());
         }
 
+        [Fact]
+        public void Adding_Task_To_Backlog_Item_In_Finished_State_Gives_NotSupportedException()
+        {
+            // Arrange
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
+            SprintFactory factory = new SprintFactory();
+
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+
+            ISprint sprint = factory.MakeReleaseSprint("Sprint 1", DateTime.Now, DateTime.Now.AddDays(14), project, p1, new List<PersonModel>() { p1 });
+            project.AddSprint(sprint);
+
+            var backlog = new BacklogModel(project);
+            Task task = new Task("", p1);
+            Task task2 = new Task("", p1);
+            project.AddBacklog(backlog);
+
+            // Act
+            var backlogItem1 = new BacklogItem("User can login into the platform", "Look here", p1, 3, backlog);
+            backlogItem1.SetSprint(sprint);
+            backlog.AddBacklogItem(backlogItem1);
+            backlogItem1.AddTask(task);
+            task.NextState();
+            task.NextState();
+            
+            backlogItem1.ChangeState(new DoneState(backlogItem1));
+
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().AddTask(task2));
+        }
+
+        [Fact]
+        public void Removing_Task_From_Backlog_Item_In_Finished_State_Gives_NotSupportedException()
+        {
+            // Arrange
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
+            SprintFactory factory = new SprintFactory();
+
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+
+            ISprint sprint = factory.MakeReleaseSprint("Sprint 1", DateTime.Now, DateTime.Now.AddDays(14), project, p1, new List<PersonModel>() { p1 });
+            project.AddSprint(sprint);
+
+            var backlog = new BacklogModel(project);
+            Task task = new Task("", p1);
+            Task task2 = new Task("", p1);
+            project.AddBacklog(backlog);
+
+            // Act
+            var backlogItem1 = new BacklogItem("User can login into the platform", "Look here", p1, 3, backlog);
+            backlogItem1.SetSprint(sprint);
+            backlog.AddBacklogItem(backlogItem1);
+            backlogItem1.AddTask(task);
+            task.NextState();
+            task.NextState();
+
+            backlogItem1.ChangeState(new DoneState(backlogItem1));
+
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().RemoveTask(task));
+        }
+
+        [Fact]
+        public void Modifying_Name_Of_Backlog_Item_In_Finished_State_Gives_NotSupportedException()
+        {
+            // Arrange
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
+            SprintFactory factory = new SprintFactory();
+
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+
+            ISprint sprint = factory.MakeReleaseSprint("Sprint 1", DateTime.Now, DateTime.Now.AddDays(14), project, p1, new List<PersonModel>() { p1 });
+            project.AddSprint(sprint);
+
+            var backlog = new BacklogModel(project);
+            Task task = new Task("", p1);
+            Task task2 = new Task("", p1);
+            project.AddBacklog(backlog);
+
+            // Act
+            var backlogItem1 = new BacklogItem("User can login into the platform", "Look here", p1, 3, backlog);
+            backlogItem1.SetSprint(sprint);
+            backlog.AddBacklogItem(backlogItem1);
+            backlogItem1.AddTask(task);
+            task.NextState();
+            task.NextState();
+
+            backlogItem1.ChangeState(new DoneState(backlogItem1));
+
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().SetName("test2"));
+        }
+
+        [Fact]
+        public void Modifying_Description_Of_Backlog_Item_In_Finished_State_Gives_NotSupportedException()
+        {
+            // Arrange
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
+            SprintFactory factory = new SprintFactory();
+
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+
+            ISprint sprint = factory.MakeReleaseSprint("Sprint 1", DateTime.Now, DateTime.Now.AddDays(14), project, p1, new List<PersonModel>() { p1 });
+            project.AddSprint(sprint);
+
+            var backlog = new BacklogModel(project);
+            Task task = new Task("", p1);
+            Task task2 = new Task("", p1);
+            project.AddBacklog(backlog);
+
+            // Act
+            var backlogItem1 = new BacklogItem("User can login into the platform", "Look here", p1, 3, backlog);
+            backlogItem1.SetSprint(sprint);
+            backlog.AddBacklogItem(backlogItem1);
+            backlogItem1.AddTask(task);
+            task.NextState();
+            task.NextState();
+
+            backlogItem1.ChangeState(new DoneState(backlogItem1));
+
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().SetDescription("test2"));
+        }
+
+        [Fact]
+        public void Modifying_Effort_Of_Backlog_Item_In_Finished_State_Gives_NotSupportedException()
+        {
+            // Arrange
+            Project project = new Project("Test Project", new PersonModel("Tom", ERole.Lead));
+            SprintFactory factory = new SprintFactory();
+
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+
+            ISprint sprint = factory.MakeReleaseSprint("Sprint 1", DateTime.Now, DateTime.Now.AddDays(14), project, p1, new List<PersonModel>() { p1 });
+            project.AddSprint(sprint);
+
+            var backlog = new BacklogModel(project);
+            Task task = new Task("", p1);
+            Task task2 = new Task("", p1);
+            project.AddBacklog(backlog);
+
+            // Act
+            var backlogItem1 = new BacklogItem("User can login into the platform", "Look here", p1, 3, backlog);
+            backlogItem1.SetSprint(sprint);
+            backlog.AddBacklogItem(backlogItem1);
+            backlogItem1.AddTask(task);
+            task.NextState();
+            task.NextState();
+
+            backlogItem1.ChangeState(new DoneState(backlogItem1));
+
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().SetEffort(3));
+        }
     }
 
 
