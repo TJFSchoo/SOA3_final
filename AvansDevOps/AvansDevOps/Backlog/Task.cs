@@ -12,7 +12,6 @@ namespace AvansDevOps.Backlog
     {
         private string _description;
         private static string TAG = "Task";
-
         private ETaskState _state;
         private PersonModel _assignedPerson;
 
@@ -20,7 +19,6 @@ namespace AvansDevOps.Backlog
         {
             _description = description;
             _assignedPerson = assignedPerson;
-
             _state = ETaskState.Todo;
         }
 
