@@ -1341,6 +1341,47 @@ namespace AvansDevOpsTests
             Assert.Throws<NotSupportedException>(() => backlogItem1.GetState().NextState());
             Assert.Equal("TestingState", project.GetBacklog().GetBacklogItems().Find(item => item == backlogItem1).GetState().GetType().Name);
         }
+
+        [Fact]
+        public void Change_Task_Description_While_State_Is_Done_Gives_NotSupportedException()
+        {
+            // Arrange
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            Task task = new Task("", p1);
+            task.NextState();
+            task.NextState();
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => task.SetDescription("test"));
+        }
+
+        [Fact]
+        public void Change_Task_Assignee_While_State_Is_Done_Gives_NotSupportedException()
+        {
+            // Arrange
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            PersonModel p2 = new PersonModel("Barold", ERole.Developer);
+            Task task = new Task("", p1);
+            task.NextState();
+            task.NextState();
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => task.AssignPerson(p2));
+        }
+
+        [Fact]
+        public void Increment_Task_State_While_State_Is_Done_Gives_NotSupportedException()
+        {
+            // Arrange
+            PersonModel p1 = new PersonModel("Harold", ERole.Developer);
+            Task task = new Task("", p1);
+            task.NextState();
+            task.NextState();
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() => task.NextState());
+        }
+
     }
 
 
