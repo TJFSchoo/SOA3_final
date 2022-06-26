@@ -93,7 +93,7 @@ namespace AvansDevOps.Backlog
             // The state of the Backlog Item can only be changed if it has a sprint reference
             if (_sprintReference == null)
                 throw new NotSupportedException(
-                    "[" + TAG + "] " + "Unable to change the state of a backlogItem because it is not in a sprint.");
+                    "[" + TAG + "] " + "Unable to change the state of a backlog item because it is not in a sprint.");
             _state = state;
             NotifyObservers();
         }

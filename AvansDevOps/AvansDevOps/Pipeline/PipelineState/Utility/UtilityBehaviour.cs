@@ -11,6 +11,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Utility
     {
         private readonly IPipeline _pipeline;
         private string _errors;
+        private static string TAG = "UtilityBehaviour";
 
         public UtilityBehaviour(IPipeline pipeline)
         {
@@ -19,8 +20,7 @@ namespace AvansDevOps.Pipeline.PipelineStates.Utility
 
         public bool Execute()
         {
-            // Stub execution step
-            Console.WriteLine("Utility pipeline step run");
+            Console.WriteLine("[" + TAG + "] " + "Utility pipeline step run");
             return true;
         }
 
